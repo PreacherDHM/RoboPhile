@@ -1,0 +1,13 @@
+﻿  RoboPhile.cpp
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(200,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(280,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(385,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(385,9): message : consider using '%zd' in the format string
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(388,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(428,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(428,11): message : consider using '%zd' in the format string
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(517,10): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(517,10): message : consider using '%zd' in the format string
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(542,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(177): warning C4172: returning address of local variable or temporary: tmpinput
+  RoboPhile.vcxproj -> C:\Users\jesse\source\repos\RoboPhile\x64\Debug\RoboPhile.lib

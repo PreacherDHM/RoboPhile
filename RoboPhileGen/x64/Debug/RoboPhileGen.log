@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\jesse\source\repos\RoboPhile\RoboPhileGen\Source.cpp(94,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhileGen\Source.cpp(128,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  RoboPhileGen.vcxproj -> C:\Users\jesse\source\repos\RoboPhile\x64\Debug\RoboPhileGen.exe

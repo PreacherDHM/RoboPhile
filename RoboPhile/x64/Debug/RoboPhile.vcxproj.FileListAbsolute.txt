@@ -1,0 +1,2 @@
+C:\Users\jesse\source\repos\RoboPhile\x64\Debug\RoboPhile.pdb
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\x64\Debug\RoboPhile.pdb

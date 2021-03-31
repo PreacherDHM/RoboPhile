@@ -1,0 +1,15 @@
+﻿  RoboPhile.cpp
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(59,10): warning C4778: 'printf' : unterminated format string '% :'
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(59,10): warning C4474: 'printf' : too many arguments passed for format string
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(59,10): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(266,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(351,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(456,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(456,9): message : consider using '%zd' in the format string
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(459,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(499,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(499,11): message : consider using '%zd' in the format string
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(592,10): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(592,10): message : consider using '%zd' in the format string
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(617,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  RoboPhile.vcxproj -> C:\Users\jesse\source\repos\RoboPhile\x64\Release\RoboPhile.lib

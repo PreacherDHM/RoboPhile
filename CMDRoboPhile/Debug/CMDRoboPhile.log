@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\jesse\source\repos\RoboPhile\CMDRoboPhile\Source.cpp(6,32): warning C4129: 'd': unrecognized character escape sequence
+C:\Users\jesse\source\repos\RoboPhile\CMDRoboPhile\Source.cpp(7,33): warning C4129: 'd': unrecognized character escape sequence
+  CMDRoboPhile.vcxproj -> C:\Users\jesse\source\repos\RoboPhile\Debug\CMDRoboPhile.exe
