@@ -1,2 +1,8 @@
-#Dor't track content of these folders
+#Don't track content of these folders
 .vs/
+
+#Don't track Theys files
+##########################
+*.robo
+*.d
+*.txt
