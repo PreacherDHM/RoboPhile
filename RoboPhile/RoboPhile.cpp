@@ -60,6 +60,7 @@ byte OpShift(byte in, byte a, byte b, byte MODE = 0x00) {
 	}
 
 }
+
 byte OpXor(byte in, byte a, byte b, byte MODE = 0x00) {
 	byte temp = in ^ a+1;
 	if (MODE == DEBUG) {
@@ -67,13 +68,14 @@ byte OpXor(byte in, byte a, byte b, byte MODE = 0x00) {
 	}
 	return temp;
 }
+
 byte OpSub(byte in, byte a, byte b, FILE* SBOX, byte MODE = 0x00) {
 
 	size_t bytes_read = 0;
-	char tmpchar;
+	byte tmpchar;
 	char nchar;
 	int characterPosition = 0;
-
+	fseek(SBOX, 0, SEEK_SET);
 	
 	if (MODE == ENCRIPT) {
 
@@ -107,21 +109,18 @@ byte OpSub(byte in, byte a, byte b, FILE* SBOX, byte MODE = 0x00) {
 			if (feof(SBOX)) {
 				break;
 			}
-			fseek(SBOX, characterPosition, SEEK_SET);
+			
 			characterPosition++;
 
 			size_t bytes_read = fread(&tmpchar, sizeof(tmpchar), 1, SBOX);
 
 
-			if (in == tmpchar) {
+			if ((int)in == tmpchar) {
 				
 				nchar = characterPosition;
-				break;
+				return nchar;
 			}
-			else
-			{
-				//printf("\rNope :%c:", characterPosition);
-			}
+			
 		}
 		//printf("Found \n");
 		//printf("Before %c Char \t return :%c:\n", in, characterPosition);
@@ -132,6 +131,7 @@ byte OpSub(byte in, byte a, byte b, FILE* SBOX, byte MODE = 0x00) {
 	//printf("\nUsing Sub");
 	return nchar;
 }
+
 byte OpFlip(byte in, byte a, byte b, byte MODE) {
 	byte temp = (byte)(in ^ 255);
 	if (MODE == DEBUG) {
@@ -140,6 +140,9 @@ byte OpFlip(byte in, byte a, byte b, byte MODE) {
 	return temp;
 }
 
+byte OpSwop(byte in, byte a, byte b, byte* buffer, int bufferSize, byte MODE = 0x00) {
+	
+}
 
 void getInstructions(const char pass[], int size, Action* actions, int* actionSize) {
 
