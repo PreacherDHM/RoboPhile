@@ -78,12 +78,12 @@ void CreateKey(Key* key, char target) {
 		}
 		else
 		{
-			key->Act[actionIndex] = setAction(&key->Act[actionIndex - 1],target);
+			key->Act[actionIndex] = setAction(&key->Act[actionIndex - 1], target);
 		}
-		
+
 	}
-	
-	
+
+
 
 }
 

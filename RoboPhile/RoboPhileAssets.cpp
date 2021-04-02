@@ -42,10 +42,10 @@ void RoboFile::closeRoboFile()
 	fclose(roboPhileFile);
 }
 
-void Progress(const char label[], int step, int total)
+void Progress(const char label[], long step, long total)
 {
 	//progress width
-	const int pwidth = 25;
+	const int pwidth = 50;
 
 	//minus label len
 	int width = pwidth - strlen(label);
@@ -58,8 +58,11 @@ void Progress(const char label[], int step, int total)
 		
 	printf("\r%s[", label);
 
-	for (int i = 0; i < pos; i++)  printf("%c", 0x06);
-
+	for (int i = 0; i < pos; i++) {
+		printf("%c", 0x06);
+	}
+		
+	
 	printf("% *c", width - pos + 1, ']');
 	printf("%3d%%", percent);
 

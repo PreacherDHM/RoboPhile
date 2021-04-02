@@ -16,7 +16,7 @@
 #define DECRIPT 0x02
 #define ENCRIPT 0X04
 
-#define ACTION_KEY_SIZE 1
+#define ACTION_KEY_SIZE 500
 #define DATA_BUFFER_SIZE 255
 
 //Mode Errors
@@ -49,5 +49,5 @@ public:
 	
 };
 
-void Progress(const char label[], int step, int total);
+void Progress(const char label[], long step, long total);
 

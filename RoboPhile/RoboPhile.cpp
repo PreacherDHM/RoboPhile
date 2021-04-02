@@ -39,7 +39,7 @@ byte OpShift(byte in, byte a, byte b, byte MODE = 0x00) {
 			return ((byte)in >> 1) | (in << 7);
 		}
 	}
-	if (MODE == DECRIPT){
+	if (MODE == DECRIPT) {
 		if (b == 0x01) {
 			if (MODE == DEBUG) {
 				printf("\n\tShift  ::  [in : %c] [a : %c] [b : %c]  :: Returning (%c)", in, a, b, temp);
@@ -55,16 +55,17 @@ byte OpShift(byte in, byte a, byte b, byte MODE = 0x00) {
 			temp = ((byte)in << 1) | (in >> 7);
 			return temp;
 		}
-	}else{
-		printf(ERROR_NO_MODE);	
+	}
+	else {
+		printf(ERROR_NO_MODE);
 	}
 
 }
 
 byte OpXor(byte in, byte a, byte b, byte MODE = 0x00) {
-	byte temp = in ^ a+1;
+	byte temp = in ^ a + 1;
 	if (MODE == DEBUG) {
-		printf("\n\tXor    ::  [in : %c] [a : %c] [b : %c]  :: Returning (%c)",in,a,in,temp);
+		printf("\n\tXor    ::  [in : %c] [a : %c] [b : %c]  :: Returning (%c)", in, a, in, temp);
 	}
 	return temp;
 }
@@ -72,11 +73,11 @@ byte OpXor(byte in, byte a, byte b, byte MODE = 0x00) {
 byte OpSub(byte in, byte a, byte b, FILE* SBOX, byte MODE = 0x00) {
 
 	size_t bytes_read = 0;
-	byte tmpchar;
-	char nchar;
+	byte tmpchar = 0x00;
+	char nchar = 0x00;
 	int characterPosition = 0;
 	fseek(SBOX, 0, SEEK_SET);
-	
+
 	if (MODE == ENCRIPT) {
 
 		if (SBOX == NULL) {
@@ -87,6 +88,7 @@ byte OpSub(byte in, byte a, byte b, FILE* SBOX, byte MODE = 0x00) {
 		fseek(SBOX, (int)in, SEEK_SET);
 
 		bytes_read = fread(&nchar, sizeof(nchar), 1, SBOX);
+
 		if (bytes_read == 0) {
 			printf("Could not read Bytes.");
 			return a;
@@ -94,6 +96,7 @@ byte OpSub(byte in, byte a, byte b, FILE* SBOX, byte MODE = 0x00) {
 		if (MODE == DEBUG) {
 			printf("\n\tSUB    ::  [in : %c] [a : %c] [b : %c]  :: Returning (%c)", in, a, b, nchar);
 		}
+		return nchar;
 	}
 	if (MODE == DECRIPT) {
 
@@ -103,24 +106,24 @@ byte OpSub(byte in, byte a, byte b, FILE* SBOX, byte MODE = 0x00) {
 			return in;
 		}
 		characterPosition = 0;
-		
+
 		while (true) {
 
 			if (feof(SBOX)) {
 				break;
 			}
-			
+
 			characterPosition++;
 
 			size_t bytes_read = fread(&tmpchar, sizeof(tmpchar), 1, SBOX);
 
 
 			if ((int)in == tmpchar) {
-				
+
 				nchar = characterPosition;
 				return nchar;
 			}
-			
+
 		}
 		//printf("Found \n");
 		//printf("Before %c Char \t return :%c:\n", in, characterPosition);
@@ -135,13 +138,13 @@ byte OpSub(byte in, byte a, byte b, FILE* SBOX, byte MODE = 0x00) {
 byte OpFlip(byte in, byte a, byte b, byte MODE) {
 	byte temp = (byte)(in ^ 255);
 	if (MODE == DEBUG) {
-		printf("\n\tFlip   ::  [in : %c] [a : %c] [b : %c]  :: Returning (%c)",in,a,b,temp);
+		printf("\n\tFlip   ::  [in : %c] [a : %c] [b : %c]  :: Returning (%c)", in, a, b, temp);
 	}
 	return temp;
 }
 
 byte OpSwop(byte in, byte a, byte b, byte* buffer, int bufferSize, byte MODE = 0x00) {
-	
+
 }
 
 void getInstructions(const char pass[], int size, Action* actions, int* actionSize) {
@@ -169,33 +172,33 @@ void getInstructions(const char pass[], int size, Action* actions, int* actionSi
 			//printf("\nActions Looked up ::  (%c)  ::", actions[actionSolection].com);
 
 		}
-		
+
 	}
 
 
 	//printf("\nDone");
 }
 
-byte* doActions(byte *input,  Action acts[],  int actionSize,int rounds, FILE* SBOX, int MODE, int inputSize = 0) {
+byte* doActions(byte* input, Action acts[], int actionSize, int rounds, FILE* SBOX, int MODE, int inputSize = 0) {
 	byte com = NULL;
 	byte a = NULL;
 	byte b = NULL;
 	byte tmpinput = *input;
 
 	byte pcom = NULL;
-	
+
 	byte mode = MODE;
-	
+
 	printf("\n\tinput beffor :: %c", (*input));
-	
-	
+
+
 	for (size_t j = 0; j < rounds; j++)
 	{
-		
-		
+
+
 		for (int i = 0; i < actionSize; i++)
 		{
-		
+
 			if (acts == NULL) {
 				printf("acts == NUll");
 			}
@@ -203,8 +206,8 @@ byte* doActions(byte *input,  Action acts[],  int actionSize,int rounds, FILE* S
 			com = acts[i].com;
 			a = acts[i].at1;
 			b = acts[i].at2;
-			
-			
+
+
 
 			switch (com)
 			{
@@ -229,22 +232,22 @@ byte* doActions(byte *input,  Action acts[],  int actionSize,int rounds, FILE* S
 			if (mode == DEBUG) {
 				printf("  ::  Action Nuber (%d)", i);
 			}
-			
-			
+
+
 			//printf("\n%c",tmpinput);
-			
+
 
 		}
-		
+
 	}
-	
-	
+
+
 	printf(" :: output %c", tmpinput);
 	return &tmpinput;
 	//printf("Finished with %c", tmpinput);
-	
+
 	//printf("\n\t output :: %c\n", (*input));
-	
+
 }
 
 
@@ -252,7 +255,7 @@ void doBufferActions(byte input[], Action acts[], int actionSize, int rounds, FI
 	byte com = NULL;
 	byte a = NULL;
 	byte b = NULL;
-	
+
 
 	byte pcom = NULL;
 
@@ -266,22 +269,22 @@ void doBufferActions(byte input[], Action acts[], int actionSize, int rounds, FI
 
 	for (size_t j = 0; j < rounds; j++)
 	{
-		Progress("Encripting ", j, rounds);
+		//Progress("Encripting ", j, rounds);
 		for (size_t k = 0; k < inputSize; k++)
 		{
 			for (int i = 0; i < actionSize; i++)
 			{
-			
-			if (acts == NULL) {
-				printf("acts == NUll");
-			}
 
-			com = acts[i].com;
-			a = acts[i].at1;
-			b = acts[i].at2;
+				if (acts == NULL) {
+					printf("acts == NUll");
+				}
+
+				com = acts[i].com;
+				a = acts[i].at1;
+				b = acts[i].at2;
 
 
-			
+
 				//printf("\n\tinput beffor :: %c", input[k]);
 				switch (com)
 				{
@@ -306,25 +309,25 @@ void doBufferActions(byte input[], Action acts[], int actionSize, int rounds, FI
 				if (mode == DEBUG) {
 					//printf("  ::  Action Nuber (%d)", i);
 				}
-				
-				
-				
+
+
+
 				//printf(" :: output %c", input[k]);
 			}
-			
 
-			
+
+
 			//printf("\n%c",tmpinput);
 
-			
+
 		}
-		
-		
+
+
 	}
 
 
-	
-	
+
+
 	//printf("Finished with %c", tmpinput);
 
 	//printf("\n\t output :: %c\n", (*input));
@@ -351,12 +354,12 @@ void doBufferActionsRev(byte input[], Action acts[], int actionSize, int rounds,
 
 	for (size_t j = 0; j < rounds; j++)
 	{
-		Progress("Decrypting ", j, rounds);
+		//Progress("Decrypting ", j, rounds);
 		for (size_t k = 0; k < inputSize; k++)
 		{
 			for (int i = actionSize; i >= 0; i--)
 			{
-				
+
 				actionNumber = i;
 				if (acts == NULL) {
 					printf("acts == NUll");
@@ -430,7 +433,7 @@ RoboPhile::Encript::~Encript()
 void RoboPhile::Encript::PassDive(const char* pass, int size, const char* fileName)
 {
 	printf(pass);
-	
+
 
 	FILE* data;
 	FILE* SBOX;
@@ -440,33 +443,36 @@ void RoboPhile::Encript::PassDive(const char* pass, int size, const char* fileNa
 	fileN += +".robo";
 	fopen_s(&data, fileName, "rb");
 	fopen_s(&SBOX, "SBOX.robo", "rb");
-	fopen_s(&outFile, fileN.c_str(),"wb");
-	if ((outFile||SBOX||data) == NULL) {
+	fopen_s(&outFile, fileN.c_str(), "wb");
+	if ((outFile || SBOX || data) == NULL) {
 		printf("can't read files");
 		return;
 	}
 	else {
 		printf("\nReading Files");
 	}
-	Round(pass, size, outFile, data,SBOX);
+	Round(pass, size, outFile, data, SBOX);
 }
 
 void RoboPhile::Encript::Round(const char* pass, int size, FILE* outFile, FILE* data, FILE* SBOX)
 {
-	
+
 	//size_t rounds = size % getPrim(size, pass);
 	size_t rounds = 4;
 	printf("\n%d :: rounds", rounds);
-	
-	
-		Cript(data,SBOX,outFile, pass, size, rounds);
-		
-	
+
+
+	Cript(data, SBOX, outFile, pass, size, rounds);
+
+
 }
 //----Algrithem----
-void RoboPhile::Encript::Cript(FILE* data, FILE* SBOX, FILE* outFile, const char* pass, unsigned int size,int rounds)
+void RoboPhile::Encript::Cript(FILE* data, FILE* SBOX, FILE* outFile, const char* pass, unsigned int size, int rounds)
 {
-	
+
+	long loadTimeActions = 0;
+	long loopTimeActions = 0;
+
 	byte targetFileBuffer[DATA_BUFFER_SIZE];
 
 	for (size_t j = 0; j < DATA_BUFFER_SIZE; j++)
@@ -480,43 +486,50 @@ void RoboPhile::Encript::Cript(FILE* data, FILE* SBOX, FILE* outFile, const char
 	int targetFileBufferSize = DATA_BUFFER_SIZE;
 	//fseek(data, 0, SEEK_END);
 	//int getfileSize = ftell(data);
-	
 
+	fseek(data, 0L, SEEK_END);
+	loadTimeActions = ftell(data);
 	fseek(data, 0, SEEK_SET);
 	//fseek(outFile, 0, SEEK_SET);
 	getInstructions(pass, size, actions, &actionGroupSize);
-	
-	//printf("\n %c", actions[0].com);
-	
-		
-		/*for(int i = 0; i < actionGroupSize; i++)
-		{*/
-		while(true){
-			if (feof( data)) {
-				break;
-			}
-			//printf("\nIncript");
-			
-			size_t Read_elemets = fread_s(&targetFileBuffer, DATA_BUFFER_SIZE, sizeof(byte), DATA_BUFFER_SIZE, data);
-			
-			printf("\nRead %d", Read_elemets);
-			//printf("\ndefference || input %c", targetFileBuffer);
-			
-				
-			//targetFileBuffer = *doActions(&targetFileBuffer, actions, actionGroupSize,rounds, SBOX);
-			doBufferActions(targetFileBuffer, actions, actionGroupSize, rounds, SBOX,DATA_BUFFER_SIZE);
-		
-			
-			
-				
-			fwrite(&targetFileBuffer, sizeof(byte), Read_elemets, outFile);
-				
-			
-			
-		}
-	
 
-	
+	int loadTime = loadTimeActions / DATA_BUFFER_SIZE;
+
+	if (loadTime < loadTimeActions) {
+		loadTime + DATA_BUFFER_SIZE;
+	}
+
+	/*for(int i = 0; i < actionGroupSize; i++)
+	{*/
+	while (true) {
+		if (feof(data)) {
+			break;
+		}
+		//printf("\nIncript");
+		loopTimeActions++;
+		
+		
+		size_t Read_elemets = fread_s(&targetFileBuffer, DATA_BUFFER_SIZE, sizeof(byte), DATA_BUFFER_SIZE, data);
+
+		//printf("\nRead %d", Read_elemets);
+		//printf("\ndefference || input %c", targetFileBuffer);
+
+		
+		
+		//targetFileBuffer = *doActions(&targetFileBuffer, actions, actionGroupSize,rounds, SBOX);
+		doBufferActions(targetFileBuffer, actions, actionGroupSize, rounds, SBOX, DATA_BUFFER_SIZE);
+
+
+
+
+		fwrite(&targetFileBuffer, sizeof(byte), Read_elemets, outFile);
+
+		Progress("Encrypting ", loopTimeActions, loadTime);
+
+	}
+
+
+
 	fclose(outFile);
 	//targetFileBuffer = 0;
 	printf("\nDone With File");
@@ -565,6 +578,9 @@ void RoboPhile::Decript::PassDive(const char* pass, int size, const char* fileNa
 
 void RoboPhile::Decript::DeCript(FILE* data, FILE* SBOX, FILE* outFile, const char* pass, int size, int rounds)
 {
+	unsigned long loadTimeActions = 0;
+	unsigned long loopTimeActions = 0;
+
 	byte targetFileBuffer[DATA_BUFFER_SIZE];
 
 	for (size_t j = 0; j < DATA_BUFFER_SIZE; j++)
@@ -578,21 +594,30 @@ void RoboPhile::Decript::DeCript(FILE* data, FILE* SBOX, FILE* outFile, const ch
 	int targetFileBufferSize = DATA_BUFFER_SIZE;
 
 
-
+	fseek(data, 0L, SEEK_END);
+	loadTimeActions = ftell(data);
 	fseek(data, 0, SEEK_SET);
-	fseek(outFile, 0, SEEK_SET);
+	//fseek(outFile, 0, SEEK_SET);
 	getInstructions(pass, size, actions, &actionGroupSize);
 
+
+	int loadTime = loadTimeActions / DATA_BUFFER_SIZE;
+
+	if (loadTime < loadTimeActions) {
+		loadTime + DATA_BUFFER_SIZE;
+	}
+
+	
 
 	while (true) {
 		if (feof(data)) {
 			break;
 		}
 		//printf("\nIncript");
-
+		loopTimeActions++;
 		size_t Read_elemets = fread_s(&targetFileBuffer, DATA_BUFFER_SIZE, sizeof(byte), DATA_BUFFER_SIZE, data);
 
-		printf("\nRead %d", Read_elemets);
+		//printf("\nRead %d", Read_elemets);
 		//printf("\ndefference || input %c", targetFileBuffer);
 
 
@@ -604,7 +629,7 @@ void RoboPhile::Decript::DeCript(FILE* data, FILE* SBOX, FILE* outFile, const ch
 
 		fwrite(&targetFileBuffer, sizeof(byte), Read_elemets, outFile);
 
-
+		Progress("Decrypted ",loopTimeActions , loadTime);
 
 	}
 
@@ -619,7 +644,7 @@ void RoboPhile::Decript::Round(const char* pass, int size, FILE* outFile, FILE* 
 	size_t rounds = 4;
 	DeCript(data, SBOX, outFile, pass, size, rounds);
 
-	
+
 
 }
 

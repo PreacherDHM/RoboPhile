@@ -1,15 +1,14 @@
 ﻿  RoboPhile.cpp
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(59,10): warning C4778: 'printf' : unterminated format string '% :'
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(59,10): warning C4474: 'printf' : too many arguments passed for format string
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(59,10): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(269,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(354,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(459,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(459,9): message : consider using '%zd' in the format string
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(462,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(502,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(502,11): message : consider using '%zd' in the format string
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(595,10): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(595,10): message : consider using '%zd' in the format string
-C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(620,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(60,10): warning C4778: 'printf' : unterminated format string '% :'
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(60,10): warning C4474: 'printf' : too many arguments passed for format string
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(60,10): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(462,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(462,9): message : consider using '%zd' in the format string
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(465,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(499,12): warning C4552: '+': result of expression not used
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(606,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(607,12): warning C4552: '+': result of expression not used
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhile.cpp(645,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  RoboPhileAssets.cpp
+C:\Users\jesse\source\repos\RoboPhile\RoboPhile\RoboPhileAssets.cpp(51,36): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   RoboPhile.vcxproj -> C:\Users\jesse\source\repos\RoboPhile\x64\Release\RoboPhile.lib
