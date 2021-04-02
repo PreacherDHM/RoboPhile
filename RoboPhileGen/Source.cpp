@@ -8,9 +8,9 @@
 
 byte randCom(char target) {
 
-	const char t[4] = { SHIFT,XOR,SUB,FLIP };
+	const char t[3] = { SHIFT,XOR,FLIP };
 	//const char t[3] = { SHIFT,XOR,FLIP };
-	int r = rand() % 4;
+	int r = rand() % 3;
 	return t[r];
 }
 

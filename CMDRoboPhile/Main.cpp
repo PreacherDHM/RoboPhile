@@ -9,17 +9,25 @@ int main(int argc, char** argv) {
 	FILE* roboPhile = nullptr;
 	FILE* data;
 
-	const char *pass = "beer-";
+	std::string pass = "beer-";
 
 	bool bencrypt = false;
 	bool bdecrypt = false;
 	std::string fname;
+	
+	
 
 	printf("args %d\n",argc);
 	for (size_t i = 0; i < argc; i++)
 	{
-		printf("%s\n", argv[i]);
-		pass = argv[1];
+		
+		
+		if (i == 1) {
+			
+			pass = argv[1];
+			printf("password : %c : Number of Chars : %d :\n", pass, pass.length());
+		}
+
 
 		if (strcmp(argv[i], "-d") == 0) {
 			bdecrypt = true;
@@ -33,11 +41,11 @@ int main(int argc, char** argv) {
 		
 	}
 	if (bencrypt) {
-		encript.PassDive(pass, 5, fname.c_str());
+		encript.PassDive(pass.c_str(), pass.length(), fname.c_str());
 	}
 	if (bdecrypt)
 	{
-		decript.PassDive(pass, 5, fname.c_str());
+		decript.PassDive(pass.c_str(), pass.length(), fname.c_str());
 	}
 	
 	

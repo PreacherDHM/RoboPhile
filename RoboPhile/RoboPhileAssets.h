@@ -16,7 +16,7 @@
 #define DECRIPT 0x02
 #define ENCRIPT 0X04
 
-#define ACTION_KEY_SIZE 500
+#define ACTION_KEY_SIZE 100
 #define DATA_BUFFER_SIZE 255
 
 //Mode Errors

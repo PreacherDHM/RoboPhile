@@ -1,8 +1,13 @@
 ﻿  Main.cpp
+C:\Users\jesse\source\repos\RoboPhile\CMDRoboPhile\Main.cpp(28,11): warning C4477: 'printf' : format string '%c' requires an argument of type 'int', but variadic argument 1 has type 'std::string'
+C:\Users\jesse\source\repos\RoboPhile\CMDRoboPhile\Main.cpp(28,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+C:\Users\jesse\source\repos\RoboPhile\CMDRoboPhile\Main.cpp(28,11): message : consider using '%zd' in the format string
+C:\Users\jesse\source\repos\RoboPhile\CMDRoboPhile\Main.cpp(44,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jesse\source\repos\RoboPhile\CMDRoboPhile\Main.cpp(48,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\jesse\source\repos\RoboPhile\CMDRoboPhile\Main.cpp(10,8): warning C4101: 'data': unreferenced local variable
   Generating code
-  4 of 96 functions ( 4.2%) were compiled, the rest were copied from previous compilation.
+  8 of 100 functions ( 8.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   CMDRoboPhile.vcxproj -> C:\Users\jesse\source\repos\RoboPhile\x64\Release\CMDRoboPhile.exe
